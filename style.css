@@ -528,6 +528,116 @@ nav.links a.active {
   border-color: var(--brass);
 }
 
+/* ---------- Home: hero texture (scoped to homepage only) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 70% 55% at 20% 30%, black 0%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 20% 30%, black 0%, transparent 72%);
+  pointer-events: none;
+}
+
+.hero .wrap { position: relative; z-index: 1; }
+
+/* ---------- Home: photo stamp (signature element) ---------- */
+.photo-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.stamp {
+  position: absolute;
+  bottom: -10px;
+  right: -22px;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brass);
+  outline: 1px solid var(--brass);
+  outline-offset: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-11deg);
+  background: rgba(250, 248, 246, 0.94);
+  backdrop-filter: blur(1px);
+}
+
+.stamp-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel-deep);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.stamp-text span {
+  display: block;
+  font-size: 12px;
+  color: var(--brass);
+  letter-spacing: 0.02em;
+  margin: 1px 0;
+}
+
+/* ---------- Home: meta ticker ---------- */
+.meta-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+
+.meta-ticker .dot-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--brass);
+  display: inline-block;
+}
+
+/* ---------- Home: highlight icons ---------- */
+.highlight-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.highlight-head svg {
+  width: 15px;
+  height: 15px;
+  color: var(--steel);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.highlight-head .skill-group-title { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .hero::before { background-size: 32px 32px; }
+  .stamp { width: 68px; height: 68px; right: -8px; bottom: -8px; }
+  .stamp-text { font-size: 7.5px; }
+  .stamp-text span { font-size: 10px; }
+}
+
 .page-header {
   padding: 64px 0 8px;
 }
